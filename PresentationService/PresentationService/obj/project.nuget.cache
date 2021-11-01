@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c90ZbWGYilb05IO8WbGwcTAkFwUSmL2AsalF35Q8vnFEqAlp55+OpSuEC7dWcSUNGKsoBBnmjDh7yYgq9PFaog==",
+  "dgSpecHash": "LG5+0clwN5xuFWQE2FniZ7H4UflzO1543pT4ItgM5lTopIIKHFH/9+mdkJ7xoCJUutGU4jRqH3J73PoKTnyPXw==",
   "success": true,
-  "projectFilePath": "C:\\Free project\\PresentationRestApiTest\\C-box\\PresentationService\\PresentationService\\PresentationService.csproj",
+  "projectFilePath": "C:\\Free project\\presentGit\\ASP\\PresentationService\\PresentationService\\PresentationService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ovcharov.a\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\ovcharov.a\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

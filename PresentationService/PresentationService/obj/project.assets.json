@@ -199,11 +199,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Free project\\PresentationRestApiTest\\C-box\\PresentationService\\PresentationService\\PresentationService.csproj",
+      "projectUniqueName": "C:\\Free project\\presentGit\\ASP\\PresentationService\\PresentationService\\PresentationService.csproj",
       "projectName": "PresentationService",
-      "projectPath": "C:\\Free project\\PresentationRestApiTest\\C-box\\PresentationService\\PresentationService\\PresentationService.csproj",
+      "projectPath": "C:\\Free project\\presentGit\\ASP\\PresentationService\\PresentationService\\PresentationService.csproj",
       "packagesPath": "C:\\Users\\ovcharov.a\\.nuget\\packages\\",
-      "outputPath": "C:\\Free project\\PresentationRestApiTest\\C-box\\PresentationService\\PresentationService\\obj\\",
+      "outputPath": "C:\\Free project\\presentGit\\ASP\\PresentationService\\PresentationService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
