@@ -9,12 +9,12 @@ namespace PresentationService.Models
     [Table("presentation")]
     public class Presentation
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public DateTime Time { get; set; }
-        public StatusPresentation Status { get; set; }
-        public string Description { get; set; }
-        public Visitor visitors { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public DateTime time { get; set; }
+        public StatusPresentation status { get; set; }
+        public string description { get; set; }
+        public int visitorsid { get; set; }
 
         public enum StatusPresentation
         {

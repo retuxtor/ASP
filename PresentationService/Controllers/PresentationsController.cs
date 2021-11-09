@@ -46,7 +46,7 @@ namespace PresentationService.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPresentation(int id, Presentation presentation)
         {
-            if (id != presentation.Id)
+            if (id != presentation.id)
             {
                 return BadRequest();
             }
@@ -80,7 +80,7 @@ namespace PresentationService.Controllers
             _context.Presentation.Add(presentation);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPresentation", new { id = presentation.Id }, presentation);
+            return CreatedAtAction("GetPresentation", new { id = presentation.id }, presentation);
         }
 
         // DELETE: api/Presentations/5
@@ -101,7 +101,7 @@ namespace PresentationService.Controllers
 
         private bool PresentationExists(int id)
         {
-            return _context.Presentation.Any(e => e.Id == id);
+            return _context.Presentation.Any(e => e.id == id);
         }
     }
 }
