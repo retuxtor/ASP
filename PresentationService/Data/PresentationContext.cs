@@ -1,17 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+//using System.Data.Entity;
+//Че использовать та ?
 
 namespace PresentationService.Models
 {
     public class PresentationContext : DbContext
     {
-        public PresentationContext(DbContextOptions<PresentationContext> options) : base(options)
+        public PresentationContext() : base("DefaultConnection")
         {
         }
 
         public DbSet<Presentation> Presentation { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Presentation>( ).ToTable("presentation");
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

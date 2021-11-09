@@ -46,12 +46,12 @@ namespace PresentationService.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPresentation(int id, Presentation presentation)
         {
-            if (id != presentation.id)
+            if (id != presentation.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(presentation).State = EntityState.Modified;
+            //_context.Entry(presentation).State = EntityState.Modified;
 
             try
             {
@@ -80,7 +80,7 @@ namespace PresentationService.Controllers
             _context.Presentation.Add(presentation);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPresentation", new { id = presentation.id }, presentation);
+            return CreatedAtAction("GetPresentation", new { id = presentation.Id }, presentation);
         }
 
         // DELETE: api/Presentations/5
@@ -101,7 +101,7 @@ namespace PresentationService.Controllers
 
         private bool PresentationExists(int id)
         {
-            return _context.Presentation.Any(e => e.id == id);
+            return _context.Presentation.Any(e => e.Id == id);
         }
     }
 }

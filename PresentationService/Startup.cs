@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PresentationService.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Data.Entity;
 using Microsoft.OpenApi.Models;
 
 namespace PresentationService
