@@ -51,8 +51,6 @@ namespace PresentationService.Controllers
                 return BadRequest();
             }
 
-            //_context.Entry(presentation).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
