@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+//using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PresentationService.Models;
+using PresentationService.Services.Implementations;
+using PresentationService.Services.Interfaces;
 
 namespace PresentationService.Controllers
 {
@@ -14,10 +16,14 @@ namespace PresentationService.Controllers
     public class PresentationsController : ControllerBase
     {
         private readonly PresentationContext _context;
+        private IWorkerWithDB _presentationWorker;
 
-        public PresentationsController(PresentationContext context)
+        public PresentationsController(PresentationContext context, IWorkerWithDB workerWithDB)
         {
             _context = context;
+            _presentationWorker = workerWithDB;
+
+            _presentationWorker.Context = _context;
         }
 
         // GET: api/Presentations
@@ -25,20 +31,14 @@ namespace PresentationService.Controllers
         public async Task<ActionResult<IEnumerable<Presentation>>> GetPresentations()
         {
             return await _context.Presentation.ToListAsync();
+            //return await _presentationWorker.GetAllFields();
         }
 
         // GET: api/Presentations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Presentation>> GetPresentation(int id)
         {
-            var presentation = await _context.Presentation.FindAsync(id);
-
-            if (presentation == null)
-            {
-                return NotFound();
-            }
-
-            return presentation;
+            return await _presentationWorker.GetField(id);
         }
 
         // PUT: api/Presentations/5
@@ -46,28 +46,13 @@ namespace PresentationService.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPresentation(int id, Presentation presentation)
         {
-            if (id != presentation.Id)
-            {
-                return BadRequest();
-            }
+            var t =  await _presentationWorker.ChangeField();
 
-            try
+            if(t != 0)
             {
-                await _context.SaveChangesAsync();
+                return Ok();
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PresentationExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
+            return NotFound();
         }
 
         // POST: api/Presentations
@@ -75,10 +60,10 @@ namespace PresentationService.Controllers
         [HttpPost]
         public async Task<ActionResult<Presentation>> PostPresentation(Presentation presentation)
         {
-            _context.Presentation.Add(presentation);
-            await _context.SaveChangesAsync();
+            await _presentationWorker.AddingField(presentation);
+            var t = _context.Presentation.Add(presentation);
 
-            return CreatedAtAction("GetPresentation", new { id = presentation.Id }, presentation);
+            return CreatedAtAction("GetPresentation", t);
         }
 
         // DELETE: api/Presentations/5
@@ -90,9 +75,7 @@ namespace PresentationService.Controllers
             {
                 return NotFound();
             }
-
-            _context.Presentation.Remove(presentation);
-            await _context.SaveChangesAsync();
+            await _presentationWorker.DeleteField(id);
 
             return NoContent();
         }

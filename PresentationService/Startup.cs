@@ -7,6 +7,8 @@ using PresentationService.Models;
 using Microsoft.EntityFrameworkCore;
 //using System.Data.Entity;
 using Microsoft.OpenApi.Models;
+using PresentationService.Services.Interfaces;
+using PresentationService.Services.Implementations;
 
 namespace PresentationService
 {
@@ -24,8 +26,8 @@ namespace PresentationService
         {
 
             services.AddControllers();
-            //services.AddDbContext<PresentationContext>(opt => opt.UseInMemoryDatabase("PresentationList"));
             services.AddDbContext<PresentationContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("PgSqlConnection")));
+            services.AddSingleton<IWorkerWithDB, PresentationWorker>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PresentationService", Version = "v1" });
