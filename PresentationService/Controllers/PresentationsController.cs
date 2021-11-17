@@ -26,23 +26,20 @@ namespace PresentationService.Controllers
             _presentationWorker.Context = _context;
         }
 
-        // GET: api/Presentations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Presentation>>> GetPresentations()
+        public async Task<ActionResult<IEnumerable<Presentation>>> GetPresentations(DateTime dateFrom, DateTime dateTo)
         {
-            return await _context.Presentation.ToListAsync();
-            //return await _presentationWorker.GetAllFields();
+            //return await _context.Presentation.ToListAsync();
+            return _presentationWorker.GetAllFields(dateFrom: dateFrom, dateTo: dateTo);
+            //DateTime dateTimes = 2020-12-12;
         }
 
-        // GET: api/Presentations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Presentation>> GetPresentation(int id)
         {
             return await _presentationWorker.GetField(id);
         }
 
-        // PUT: api/Presentations/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPresentation(int id, Presentation presentation)
         {
@@ -55,8 +52,6 @@ namespace PresentationService.Controllers
             return NotFound();
         }
 
-        // POST: api/Presentations
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Presentation>> PostPresentation(Presentation presentation)
         {

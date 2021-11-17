@@ -15,7 +15,8 @@ namespace PresentationService.Services.Interfaces
         /// Метод, который возвращает все значения полей из presentation
         /// </summary>
         /// <returns></returns>
-        Task<ActionResult<IEnumerable<Presentation>>> GetAllFields();
+        /// 
+        List<Presentation> GetAllFields(DateTime dateFrom, DateTime dateTo);
 
         /// <summary>
         /// Метод, который возвращает конкретное поле

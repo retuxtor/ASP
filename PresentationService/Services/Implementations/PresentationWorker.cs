@@ -14,10 +14,11 @@ namespace PresentationService.Services.Implementations
     {
         public PresentationContext Context { get; set; }
 
-        public async Task<ActionResult<IEnumerable<Presentation>>> GetAllFields()
+        public List<Presentation> GetAllFields(DateTime dateFrom, DateTime dateTo)
         {
-           return await Context.Presentation.ToListAsync();
+            return Context.Presentation.Where(c => c.Time > dateFrom && c.Time < dateTo).ToList();
         }
+
 
         public async Task<ActionResult<Presentation>> GetField(int id)
         {
