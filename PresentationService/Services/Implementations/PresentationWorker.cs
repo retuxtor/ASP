@@ -20,7 +20,7 @@ namespace PresentationService.Services.Implementations
         }
 
 
-        public async Task<ActionResult<Presentation>> GetField(int id)
+        public async Task<Presentation> GetField(int id)
         {
             var presentation = await Context.Presentation.FindAsync(id);
 

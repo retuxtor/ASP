@@ -27,17 +27,21 @@ namespace PresentationService.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Presentation>>> GetPresentations(DateTime dateFrom, DateTime dateTo)
+        public async Task<List<Presentation>> GetPresentations(DateTime dateFrom, DateTime dateTo)
         {
-            //return await _context.Presentation.ToListAsync();
             return _presentationWorker.GetAllFields(dateFrom: dateFrom, dateTo: dateTo);
-            //DateTime dateTimes = 2020-12-12;
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Presentation>> GetPresentation(int id)
+        public Task<Presentation> GetPresentation(int id)
         {
-            return await _presentationWorker.GetField(id);
+            return  _presentationWorker.GetField(id);
+        }
+
+        [HttpGet("GetDefinedValue/{qauntity}")]
+        public async Task<List<Presentation>> GetDefinedValuePresentation(int qauntity)
+        {
+            return _context.Presentation.OrderBy(p => p.Id).Take(qauntity).ToList();
         }
 
         [HttpPut("{id}")]

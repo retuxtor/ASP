@@ -23,7 +23,7 @@ namespace PresentationService.Services.Interfaces
         /// </summary>
         /// <param name="id">Интересующий номер поля presentation</param>
         /// <returns></returns>
-        Task<ActionResult<Presentation>> GetField(int id);
+        Task<Presentation> GetField(int id);
 
         /// <summary>
         /// Метод, который изменяет существующую запись presentation
