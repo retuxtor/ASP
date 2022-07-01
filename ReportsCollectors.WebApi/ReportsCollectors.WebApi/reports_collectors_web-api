@@ -1,0 +1,15 @@
+FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
+ENV HOSTNAME ${IMAGE_NAME}
+
+COPY NuGet.config /root/.nuget/NuGet/NuGet.Config
+COPY /net-core/ReportsCollectors.WebApi/ReportsCollectors.WebApi	src/ReportsCollectors.WebApi/
+
+FROM build AS publish
+WORKDIR "src/ReportsCollectors.WebApi"
+RUN dotnet restore "ReportsCollectors.WebApi.csproj"
+RUN dotnet publish "ReportsCollectors.WebApi.csproj" -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim AS runtime
+COPY --from=publish /app/publish /app/
+WORKDIR /app
+ENTRYPOINT ["dotnet", "ReportsCollectors.WebApi.dll"]

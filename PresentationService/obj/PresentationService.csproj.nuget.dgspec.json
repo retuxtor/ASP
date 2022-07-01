@@ -1,28 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "E:\\repos\\ASP\\PresentationService\\PresentationService.csproj": {}
+    "C:\\Git\\ASP\\PresentationService\\PresentationService.csproj": {}
   },
   "projects": {
-    "E:\\repos\\ASP\\PresentationService\\PresentationService.csproj": {
+    "C:\\Git\\ASP\\PresentationService\\PresentationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\repos\\ASP\\PresentationService\\PresentationService.csproj",
+        "projectUniqueName": "C:\\Git\\ASP\\PresentationService\\PresentationService.csproj",
         "projectName": "PresentationService",
-        "projectPath": "E:\\repos\\ASP\\PresentationService\\PresentationService.csproj",
-        "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-        "outputPath": "E:\\repos\\ASP\\PresentationService\\obj\\",
+        "projectPath": "C:\\Git\\ASP\\PresentationService\\PresentationService.csproj",
+        "packagesPath": "C:\\Users\\ovcharov.a\\.nuget\\packages\\",
+        "outputPath": "C:\\Git\\ASP\\PresentationService\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Александр\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ovcharov.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://gitlab.dobrozaim.ru/api/v4/projects/80/packages/nuget/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -93,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
